@@ -13,4 +13,6 @@ export const MAPPING = {
   "e3a36c9": "tests/e2e/WELLBEINGT-199/e3a36c9.spec.ts",
   "740f931": "tests/e2e/WELLBEINGT-199/740f931.spec.ts",
   "5b92ab9": "tests/e2e/WELLBEINGT-200/5b92ab9.spec.ts",
+  "7f28d1b49ac3": "tests/e2e/WELLBEINGT-13/7f28d1b49ac3.spec.ts",
+  "4de6c08f9251": "tests/e2e/WELLBEINGT-14/4de6c08f9251.spec.ts",
 } as const;
