@@ -70,8 +70,8 @@ export default function CalendarSelector({
 
   if (!mounted) {
     return (
-      <section aria-label="Calendar selector" className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-        <div className="h-6 w-40 animate-pulse rounded bg-slate-100" />
+      <section aria-label="Calendar selector" className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700">
+        <div className="h-6 w-40 animate-pulse rounded bg-slate-100 dark:bg-slate-700" />
       </section>
     );
   }
@@ -80,7 +80,7 @@ export default function CalendarSelector({
   const filterActive = selection.kind !== "none";
 
   return (
-    <section aria-label="Calendar selector" className="rounded-xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+    <section aria-label="Calendar selector" className="rounded-xl bg-white dark:bg-slate-800 p-6 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700">
       <div className="flex items-center justify-between">
         <button
           type="button"
@@ -91,7 +91,7 @@ export default function CalendarSelector({
         >
           ‹
         </button>
-        <p data-testid="calendar-window" className="text-sm font-medium text-slate-700">
+        <p data-testid="calendar-window" className="text-sm font-medium text-slate-700 dark:text-slate-200">
           {formatMonthLabel(months[0])} – {formatMonthLabel(months[2])}
         </p>
         <button
@@ -108,10 +108,10 @@ export default function CalendarSelector({
       <div className="mt-4 grid gap-6 md:grid-cols-3">
         {months.map((ym) => (
           <div key={`${ym.year}-${ym.month}`}>
-            <p className="mb-2 text-center text-xs font-semibold uppercase tracking-wide text-slate-500">
+            <p className="mb-2 text-center text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
               {formatMonthLabel(ym)}
             </p>
-            <div className="grid grid-cols-7 gap-y-1 text-center text-[10px] font-medium text-slate-400">
+            <div className="grid grid-cols-7 gap-y-1 text-center text-[10px] font-medium text-slate-400 dark:text-slate-500">
               {WEEKDAY_LABELS.map((label) => (
                 <span key={label}>{label}</span>
               ))}
@@ -162,7 +162,7 @@ export default function CalendarSelector({
 
       {filterActive && (
         <div className="mt-4 flex items-center justify-between">
-          <p data-testid="active-filter" className="text-sm text-slate-500">
+          <p data-testid="active-filter" className="text-sm text-slate-500 dark:text-slate-400">
             Filter:{" "}
             {selection.kind === "day" ? selection.day : `${selection.start} → ${selection.end}`}
           </p>

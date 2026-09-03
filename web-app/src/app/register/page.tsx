@@ -40,12 +40,12 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="rounded-xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+    <div className="rounded-xl bg-white dark:bg-slate-800 p-8 shadow-sm ring-1 ring-slate-200 dark:ring-slate-700">
       <h1 className="text-2xl font-semibold">Create an account</h1>
-      <p className="mt-1 text-sm text-slate-500">One account per person — your entries stay private.</p>
+      <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">One account per person — your entries stay private.</p>
       <form onSubmit={onSubmit} className="mt-6 space-y-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-slate-700">
+          <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
             Email
           </label>
           <input
@@ -55,12 +55,12 @@ export default function RegisterPage() {
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            className="mt-1 w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 px-3 py-2 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
             placeholder="you@example.com"
           />
         </div>
         <div>
-          <label htmlFor="password" className="block text-sm font-medium text-slate-700">
+          <label htmlFor="password" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
             Password
           </label>
           <input
@@ -71,7 +71,7 @@ export default function RegisterPage() {
             autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            className="mt-1 w-full rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 px-3 py-2 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
             placeholder="At least 8 characters"
           />
         </div>
@@ -88,7 +88,7 @@ export default function RegisterPage() {
           {busy ? "Creating account…" : "Sign up"}
         </button>
       </form>
-      <p className="mt-4 text-sm text-slate-500">
+      <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
         Already registered?{" "}
         <Link href="/login" className="font-medium text-indigo-600 hover:underline">
           Log in
