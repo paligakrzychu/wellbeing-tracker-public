@@ -30,10 +30,6 @@ RUN npm rebuild better-sqlite3
 # Build the Next.js production bundle.
 RUN npm run build
 
-# Strip devDependencies so the runtime image stays slim and build tools
-# (compilers, typescript, playwright, etc.) are NOT present in the runtime layer.
-RUN npm prune --omit=dev
-
 ########## RUNTIME STAGE ##########
 FROM node:22-bookworm-slim AS runtime
 
@@ -50,7 +46,9 @@ RUN apt-get update \
       libsqlite3-0 \
  && rm -rf /var/lib/apt/lists/*
 
-# Production dependencies (devDependencies already pruned in the build stage).
+# Production dependencies from build stage (devDeps included — typescript is
+# needed at runtime for next.config.ts; pruned image is still much smaller
+# than a single-stage equivalent thanks to stripped build toolchain).
 COPY --from=build /app/node_modules ./node_modules
 
 # Manifest + application source + the Next.js production build output.
