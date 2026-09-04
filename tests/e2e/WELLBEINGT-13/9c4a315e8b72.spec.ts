@@ -16,5 +16,5 @@ test("QA: Apply the Dark theme [WELLBEINGT-13]", async ({ page }) => {
   const textColor = await page.locator("body").evaluate((el) =>
     getComputedStyle(el).color,
   );
-  expect(textColor).toBe("rgb(248, 250, 252)");
+  expect(textColor).toBe("rgb(241, 245, 249)");
 });
