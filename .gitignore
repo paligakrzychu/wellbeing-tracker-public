@@ -37,9 +37,8 @@ web-app/dist/
 
 # sqlite / local DB
 data.db
-data.db-*
 *.db
-*.db-journal
+*.db-*
 *.sqlite
 *.sqlite3
 web-app/data.db
