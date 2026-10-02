@@ -7,7 +7,8 @@
 # say the dependencies did not install, which is a lie about this repository.
 #
 # So the suite runs here, and it is the repository's own: `npm ci` and then `npm test`, which is
-# `vitest run`. The same words the plan in `src/tools/run_tests.rs` builds for a Node checkout.
+# `vitest run` — the same words the plan in `src/tools/run_tests.rs` builds for a Node checkout —
+# and then a typecheck, which is a step of its own because `vitest run` does not do one.
 name: ci
 
 on:
@@ -33,6 +34,13 @@ jobs:
       # quietly resolving something the lockfile does not say.
       - name: install what the suite needs
         run: npm ci
+
+      # A typecheck, and a step of its own rather than something the suite happens to do:
+      # `vitest run` transpiles without checking, so code that does not build can be a green run
+      # over files that were never asked whether they were well formed. The delivery run's
+      # verdict is this workflow's, so a step nobody runs here is a step it has no way to read.
+      - name: the repository's own typecheck
+        run: npx tsc --noEmit
 
       - name: the repository's own test suite
         run: npm test
